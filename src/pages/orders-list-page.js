@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import OrdersList from "../components/orders-list";
-import { fetchOrders, deleteOrders } from "../actions/celebrities-actions";
+import Hero from "../components/hero";
+import {
+  fetchOrders,
+  deleteOrders,
+  vote
+} from "../actions/celebrities-actions";
 import { Pagination } from "semantic-ui-react";
 
 /**
@@ -24,6 +29,19 @@ class OrdersListPage extends Component {
     this.setState({ activePage });
     this.props.fetchOrders({ activePage, pageSize: this.state.pageSize });
   };
+  vote = (celebrity, type) => {
+    if (type === "up") {
+      celebrity.votes.positives++;
+    } else {
+      celebrity.votes.positives--;
+    }
+    return this.props
+      .vote(celebrity)
+      .then(response => this.setState({ redirect: true }))
+      .catch(err => {
+        throw this.props.errors;
+      });
+  };
   render() {
     const { activePage, boundaryRange, siblingRange, pageSize } = this.state;
 
@@ -32,10 +50,13 @@ class OrdersListPage extends Component {
     let totalPages = Math.ceil(total / pageSize); // round up the float number
     return (
       <div>
-        <h1>Lista de ordenes</h1>
+        <Hero />
+        <div>Speak out. Be heard.</div>
+        <h2>Votes</h2>
         <OrdersList
           orders={this.props.orders}
           deleteOrders={this.props.deleteOrders}
+          vote={this.props.vote}
         />
         <Pagination
           activePage={activePage}
@@ -57,6 +78,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchOrders, deleteOrders })(
+export default connect(mapStateToProps, { fetchOrders, deleteOrders, vote })(
   OrdersListPage
 );

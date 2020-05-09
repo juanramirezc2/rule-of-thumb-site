@@ -6,7 +6,11 @@ import App from './App';
 import store from "./store"
 //import 'semantic-ui-css/semantic.min.css';
 import './index.css';
+// font awesome library instanciation
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
 
+library.add(faThumbsUp, faThumbsDown)
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
