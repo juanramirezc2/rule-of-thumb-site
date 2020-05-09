@@ -33,8 +33,9 @@ class OrdersListPage extends Component {
     if (type === "up") {
       celebrity.votes.positives++;
     } else {
-      celebrity.votes.positives--;
+      celebrity.votes.negatives++;
     }
+    celebrity.votes.total = celebrity.votes.positives + celebrity.votes.negatives;
     return this.props
       .vote(celebrity)
       .then(response => this.setState({ redirect: true }))

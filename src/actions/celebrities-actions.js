@@ -23,6 +23,15 @@ export function newOrder() {
   };
 }
 
+export function vote(celebrity) {
+  return dispatch => {
+    return dispatch({
+      type: "VOTE",
+      payload: client.put(`${url}/${celebrity._id}`, celebrity)
+    });
+  };
+}
+
 export function saveOrder(order) {
   return dispatch => {
     return dispatch({
@@ -59,11 +68,3 @@ export function deleteOrders(_id) {
   };
 }
 
-export function vote(celebrity) {
-  return dispatch => {
-    return dispatch({
-      type: "VOTE",
-      payload: client.post(url, celebrity)
-    });
-  };
-}
