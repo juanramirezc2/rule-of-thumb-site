@@ -20,7 +20,7 @@ export function newOrder() {
       })
     }
   }
-  
+
   export function saveOrder(order) {
     return dispatch => {
       return dispatch({
@@ -38,7 +38,7 @@ export function newOrder() {
       })
     }
   }
-  
+
   export function updateOrder(order) {
     return dispatch => {
       return dispatch({
