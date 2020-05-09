@@ -47,6 +47,7 @@ export default function OrderCard({ order, deleteOrders, vote }) {
           </p>
         </Card.Description>
       </Card.Content>
+      <img src={order.image} />
       <Card.Content extra>
         <div className="ui two buttons">
           <div className="ui two buttons">
