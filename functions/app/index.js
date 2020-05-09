@@ -10,12 +10,16 @@ const NeDB = require("nedb");
 const service = require("feathers-nedb");
 
 const db = new NeDB({
-  filename: "./db-data/messages",
+  filename: "./db-data/celebrities",
   autoload: true
 });
 
 /* My express App */
 export default function expressApp(functionName) {
+  const routerBasePath =
+    process.env.NODE_ENV === "dev"
+      ? `/${functionName}`
+      : `/.netlify/functions/${functionName}`;
   // Create an Express compatible Feathers application instance.
   const app = express(feathers());
   const router = express.Router;
@@ -23,20 +27,13 @@ export default function expressApp(functionName) {
   app.use(express.json());
   // Turn on URL-encoded parser for REST services
   app.use(express.urlencoded({ extended: true }));
-  // Add a service.
-  app.use("/", {
-    async get(id) {
-      return {
-        id,
-        text: `This is the ${id} message!`
-      };
-    }
-  });
   // Enable REST services
   app.configure(express.rest());
   // Connect to the db, create and register a Feathers service.
+
+  // Set router base path for local dev
   app.use(
-    "messages",
+    `${routerBasePath}/celebrities`,
     service({
       Model: db,
       paginate: {
@@ -46,22 +43,12 @@ export default function expressApp(functionName) {
     })
   );
 
-  app.get(`*`, function(req, res) {
-    res.status(200).json({ status: req.url });
-  });
-
-  app
-    .service("messages")
-    .create({
-      text: "Message created on server"
-    })
-    .then(message => console.log("Created message", message));
-
-  // Set router base path for local dev
-  const routerBasePath =
-    process.env.NODE_ENV === "dev"
-      ? `/${functionName}`
-      : `/.netlify/functions/${functionName}/`;
+  //app
+    //.service("messages")
+    //.create({
+      //text: "Message created on server"
+    //})
+    //.then(message => console.log("Created message", message));
 
   // Apply express middlewares
   return app;
