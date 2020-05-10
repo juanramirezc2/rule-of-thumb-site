@@ -5,7 +5,7 @@
 }
 .hero__content {
   backdrop-filter: brightness(0.7) blur(40px);
-  width: 50%;
+  width: 100%;
   max-width: 52rem;
 }
 .hero__content-inner {

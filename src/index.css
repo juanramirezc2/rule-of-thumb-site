@@ -51,11 +51,25 @@ img {
   max-width: 102.4rem;
   margin: 0 auto;
 }
+/* responsive container */
+@media (max-width: 1023px) {
+  .ui.container {
+    padding: 0 2rem;
+  }
+}
 .ui.cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 553px 553px;
   gap: 40px;
+}
+
+/* responsive container */
+@media (max-width: 768px) {
+  .ui.cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
 }
 .ui.card {
   background-repeat: no-repeat;
