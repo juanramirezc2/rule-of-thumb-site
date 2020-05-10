@@ -4,7 +4,7 @@ import Header from "./components/header";
 import About from "./pages/about";
 import Home from "./pages/home";
 import OrdersFormPage from "./pages/orders-form-page";
-import OrdersListPage from "./pages/orders-list-page";
+import ListPage from "./pages/list-page";
 import Terms from "./pages/terms";
 /**
  * App class react router in change of routes for all pages.
@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <>
         <Header />
-        <Route exact path="/" component={OrdersListPage} />
+        <Route exact path="/" component={ListPage} />
         <Route exact path="/past" component={Home} />
         <Route exact path="/terms" component={Terms} />
         <Route exact path="/about" component={About} />

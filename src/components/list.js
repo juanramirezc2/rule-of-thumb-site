@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
-import OrderCard from "./order-card";
+import OrderCard from "./card";
 
 /**
  *

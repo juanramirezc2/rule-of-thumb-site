@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import  Progress from "./progress.js"
+import Progress from "./progress.js";
 /**
  *
  * card class component in charge of show a single order
@@ -37,7 +37,8 @@ const ThankyouUi = () => (
 );
 const linearGradient = `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 12%, rgba(9,9,121,0) 55%)
 `;
-export default function OrderCard({ order, deleteOrders, vote }) {
+
+export default function SingleCard({ order,  vote }) {
   // Declaración de una variable de estado que llamaremos "count"
   const [voteflag, setVoteflag] = useState(false);
   return (
@@ -46,9 +47,7 @@ export default function OrderCard({ order, deleteOrders, vote }) {
         <Card.Header>
           <Icon name="user outline" /> {order.name}
         </Card.Header>
-        <Card.Description>
-
-        </Card.Description>
+        <Card.Description></Card.Description>
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">

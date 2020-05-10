@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import OrdersList from "../components/orders-list";
+import List from "../components/list";
 import Hero from "../components/hero";
 import { Container } from "semantic-ui-react";
 import {
@@ -56,7 +56,7 @@ class OrdersListPage extends Component {
         <Container>
           <div>Speak out. Be heard.</div>
           <h2>Votes</h2>
-          <OrdersList
+          <List
             orders={orders.filter(celebrity => !celebrity.featured)}
             deleteOrders={deleteOrders}
             vote={vote}
