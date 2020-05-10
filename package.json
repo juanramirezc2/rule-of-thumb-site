@@ -16,6 +16,7 @@
     "classnames": "^2.2.6",
     "cors": "^2.8.4",
     "feathers-nedb": "^5.1.0",
+    "framer": "^1.1.7",
     "http-proxy-middleware": "^0.19.0",
     "morgan": "^1.9.0",
     "nedb": "^1.8.0",
