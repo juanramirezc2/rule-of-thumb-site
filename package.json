@@ -30,6 +30,7 @@
     "redux-form": "^7.4.2",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.0",
     "serverless-http": "^1.6.0",
     "winston": "^3.0.0"

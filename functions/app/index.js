@@ -9,11 +9,10 @@ const express = require("@feathersjs/express");
 const NeDB = require("nedb");
 const service = require("feathers-nedb");
 const path = require('path');
-const dbPath = require.resolve("../db-data/celebrities")
 
 
 const db = new NeDB({
-  filename: dbPath,
+  filename: "./db-data/celebrities",
   autoload: true
 });
 

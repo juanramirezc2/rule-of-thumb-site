@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import { NavLink, Route } from "react-router-dom";
-import { Container, Header } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import OrdersListPage from "./pages/orders-list-page";
 import OrdersFormPage from "./pages/orders-form-page";
 import Home from "./pages/home";
 import About from "./pages/about";
 import Terms from "./pages/terms";
 
-const HeaderLogo = () => (
-  <Header
-    as="h2"
-    image="https://img.clipartxtras.com/df853d441960da671cbe5a4168229982_whole-pepperoni-pizza-clipart-38-pepperoni-clipart-black-and-white_1203-1159.gif"
-    content="Pizza admin"
-  />
+const Header = () => (
+  <header>
+    <div>
+    Rule of Thumb.
+    </div>
+    <nav>
+      <ul>
+        <li>Past Trials</li>
+        <li>How it Works</li>
+        <li>Log In/Sign Up</li>
+      </ul>
+    </nav>
+  </header>
 );
 /**
  * App class react router in change of routes for all pages.
@@ -23,30 +30,7 @@ class App extends Component {
   render() {
     return (
         <Container>
-          <NavLink activeClassName="selected" to="/orders/list">
-            <HeaderLogo />
-          </NavLink>
-          <div className="ui  three item menu">
-            <NavLink className="item" activeClassName="active" exact to="/">
-              Inicio
-            </NavLink>
-            <NavLink
-              className="item"
-              activeClassName="active"
-              exact
-              to="/orders/list"
-            >
-              Listar Ordenes
-            </NavLink>
-            <NavLink
-              className="item"
-              activeClassName="active"
-              exact
-              to="/orders/new"
-            >
-              Agregar Orden
-            </NavLink>
-          </div>
+          <Header />
           <Route exact path="/" component={OrdersListPage} />
           <Route exact path="/past" component={Home} />
           <Route exact path="/terms" component={Terms} />

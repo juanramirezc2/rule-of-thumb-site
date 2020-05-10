@@ -5,6 +5,7 @@ import styles from './hero.css';
 function hero({ celebrity, vote }) {
   return (
     <div className={styles.base}>
+      <img src={celebrity.image} />
       here goes a hero that let's you vote
     </div>
   );

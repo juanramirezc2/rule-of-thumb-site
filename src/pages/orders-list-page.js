@@ -35,7 +35,8 @@ class OrdersListPage extends Component {
     } else {
       celebrity.votes.negatives++;
     }
-    celebrity.votes.total = celebrity.votes.positives + celebrity.votes.negatives;
+    celebrity.votes.total =
+      celebrity.votes.positives + celebrity.votes.negatives;
     return this.props
       .vote(celebrity)
       .then(response => this.setState({ redirect: true }))
@@ -46,18 +47,18 @@ class OrdersListPage extends Component {
   render() {
     const { activePage, boundaryRange, siblingRange, pageSize } = this.state;
 
-    const { total } = this.props;
+    const { orders, total, deleteOrders, vote } = this.props;
 
     let totalPages = Math.ceil(total / pageSize); // round up the float number
     return (
       <div>
-        <Hero />
+        <Hero vote={vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
         <div>Speak out. Be heard.</div>
         <h2>Votes</h2>
         <OrdersList
-          orders={this.props.orders}
-          deleteOrders={this.props.deleteOrders}
-          vote={this.props.vote}
+          orders={orders}
+          deleteOrders={deleteOrders}
+          vote={vote}
         />
         <Pagination
           activePage={activePage}
