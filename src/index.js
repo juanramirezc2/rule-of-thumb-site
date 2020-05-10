@@ -14,9 +14,9 @@ import './fonts/Lato-LightItalic.ttf'
 import './index.css';
 // font awesome library instanciation
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons'
+import { faThumbsUp, faThumbsDown, faBars, faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faThumbsUp, faThumbsDown)
+library.add(faThumbsUp, faThumbsDown, faBars, faSearch, faTimes)
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
