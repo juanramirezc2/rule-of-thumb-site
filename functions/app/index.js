@@ -37,11 +37,7 @@ export default function expressApp(functionName) {
   app.use(
     `${routerBasePath}/celebrities`,
     service({
-      Model: db,
-      paginate: {
-        default: 2,
-        max: 4
-      }
+      Model: db
     })
   );
 

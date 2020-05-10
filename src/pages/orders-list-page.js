@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import OrdersList from "../components/orders-list";
 import Hero from "../components/hero";
+import { Container } from "semantic-ui-react";
 import {
   fetchOrders,
   deleteOrders,
@@ -20,7 +21,7 @@ class OrdersListPage extends Component {
     activePage: 1,
     boundaryRange: 1,
     siblingRange: 1,
-    pageSize: 6
+    pageSize: 5
   };
   componentDidMount() {
     this.props.fetchOrders(this.state);
@@ -48,27 +49,28 @@ class OrdersListPage extends Component {
     const { activePage, boundaryRange, siblingRange, pageSize } = this.state;
 
     const { orders, total, deleteOrders, vote } = this.props;
-
     let totalPages = Math.ceil(total / pageSize); // round up the float number
     return (
-      <div>
+      <main>
         <Hero vote={vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
-        <div>Speak out. Be heard.</div>
-        <h2>Votes</h2>
-        <OrdersList
-          orders={orders}
-          deleteOrders={deleteOrders}
-          vote={vote}
-        />
-        <Pagination
-          activePage={activePage}
-          boundaryRange={boundaryRange}
-          onPageChange={this.handlePaginationChange}
-          size="mini"
-          siblingRange={siblingRange}
-          totalPages={totalPages}
-        />
-      </div>
+        <Container>
+          <div>Speak out. Be heard.</div>
+          <h2>Votes</h2>
+          <OrdersList
+            orders={orders.filter(celebrity => !celebrity.featured)}
+            deleteOrders={deleteOrders}
+            vote={vote}
+          />
+          <Pagination
+            activePage={activePage}
+            boundaryRange={boundaryRange}
+            onPageChange={this.handlePaginationChange}
+            size="mini"
+            siblingRange={siblingRange}
+            totalPages={totalPages}
+          />
+        </Container>
+      </main>
     );
   }
 }

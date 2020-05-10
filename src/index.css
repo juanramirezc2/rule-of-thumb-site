@@ -1,5 +1,7 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 html {
@@ -15,7 +17,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+:root {
+  --thumbs-up-color: #33bab3;
+  --thumbs-down-color: #fcb242;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -31,8 +36,8 @@ code {
 }
 button {
   background-color: transparent;
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   font-family: "Lato Regular";
   height: 4rem;
   line-height: 4rem;
@@ -55,15 +60,42 @@ img {
 .ui.card {
   background-repeat: no-repeat;
   background-size: cover;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0 4.1rem;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   position: relative;
   background-blend-mode: normal;
+  padding-bottom: 5rem;
 }
-.ui.card .header{
+.ui.card .extra {
+  margin-bottom: 3.5rem;
+}
+.thumbs-up {
+  background-color: var(--thumbs-up-color);
+}
+.thumbs-down {
+  background-color: var(--thumbs-down-color);
+}
+.ui.card .header {
   font-size: 4.5rem;
   font-family: "Lato Regular";
+}
+.list-inline {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+header h1 {
+  margin: 0;
+}
+.header__wrapper {
+  width: 100%;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
 }

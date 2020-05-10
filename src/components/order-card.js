@@ -11,10 +11,10 @@ import  Progress from "./progress.js"
  */
 const VoteUi = ({ order, vote, setVoteflag }) => (
   <>
-    <Button basic color="red" onClick={() => vote(order, `up`)}>
+    <Button basic className="thumbs-up" onClick={() => vote(order, `up`)}>
       <FontAwesomeIcon icon="thumbs-up" />
     </Button>
-    <Button basic color="red" onClick={() => vote(order, `down`)}>
+    <Button basic className="thumbs-down" onClick={() => vote(order, `down`)}>
       <FontAwesomeIcon icon="thumbs-down" />
     </Button>
     <Button
@@ -47,18 +47,7 @@ export default function OrderCard({ order, deleteOrders, vote }) {
           <Icon name="user outline" /> {order.name}
         </Card.Header>
         <Card.Description>
-          <p>
-            <Icon name="phone" /> {order.telefono}
-          </p>
-          <p>
-            <Icon name="map pin" /> {order.direccion}
-          </p>
-          <p>
-            <Icon name="food" /> {order.copy}
-          </p>
-          <p>
-            <Icon name="adjust" /> {order.pizza}
-          </p>
+
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
@@ -77,8 +66,8 @@ export default function OrderCard({ order, deleteOrders, vote }) {
             )}
           </div>
         </div>
-        <Progress />
       </Card.Content>
+      <Progress />
     </Card>
   );
 }

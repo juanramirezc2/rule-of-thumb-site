@@ -1,0 +1,35 @@
+.hero {
+  color: #ffffff;
+  margin-top: -12rem;
+  padding-top: 12rem;
+}
+.hero__content {
+  backdrop-filter: brightness(0.7) blur(40px);
+  width: 50%;
+  max-width: 52rem;
+}
+.hero__content-inner {
+  padding: 3.5rem 7rem 3.5rem 3.5rem;
+}
+.hero__name {
+  font-size: 6rem;
+  font-family:"Lato Regular";
+}
+.hero__copy {
+  font-size: 2.1rem;
+  line-height: 24px;
+}
+.hero__thumbs-up {
+  width: 50%;
+  height: 8rem;
+  line-height: 8rem;
+}
+.hero__content svg {
+  width: 4rem;
+  height: 4rem;
+}
+.hero__thumbs-down {
+  width: 50%;
+  height: 8rem;
+  line-height: 8rem;
+}
