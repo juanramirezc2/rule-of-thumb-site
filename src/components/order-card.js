@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import  Progress from "./progress.js"
 /**
  *
  * card class component in charge of show a single order
@@ -76,6 +77,7 @@ export default function OrderCard({ order, deleteOrders, vote }) {
             )}
           </div>
         </div>
+        <Progress />
       </Card.Content>
     </Card>
   );
