@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Card, Button, Icon } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Progress from "./progress.js";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import classnames from "classnames";
+import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import {Button, Card, Icon} from "semantic-ui-react";
 import "./card.css";
+import Progress from "./progress.js";
 
 const timeSince = (date) => {
   var seconds = Math.floor((new Date() - date) / 1000);
@@ -36,16 +37,20 @@ const timeSince = (date) => {
  *
  *
  */
-const ThumbsUp = ({click}) =>( <Button basic className="thumbs-up" >
+
+const ThumbsUp = ({click, selected}) =>( 
+ <Button className={classnames({ menuOpen: selected === `thumbs-up` })} onClick={click} basic className="thumbs-up" >
       <FontAwesomeIcon icon="thumbs-up" />
     </Button> )
-const ThumbsDown = ({click}) =>(<Button basic className="thumbs-down" >
+const ThumbsDown = ({click, selected}) =>(
+  <Button onClick={click} basic className="thumbs-down" >
       <FontAwesomeIcon icon="thumbs-down" />
     </Button>)
-const VoteUi = ({ order, vote, setVoteflag }) => (
+
+const VoteUi = ({ order, vote, setVoteflag,selectedButton, setSelectedButton }) => (
   <>
-    <ThumbsUp />
-    <ThumbsDown />
+    <ThumbsUp click={()=>{setSelectedButton("thumbs-up")}} />
+    <ThumbsDown click={()=>{setSelectedButton("thumbs-down")}} />
     <Button
       basic
       color="red"
@@ -68,8 +73,8 @@ const linearGradient = `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1)
 `;
 
 export default function SingleCard({ order, vote }) {
-  // Declaración de una variable de estado que llamaremos "count"
   const [voteflag, setVoteflag] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(false);
   return (
     <Card style={{ backgroundImage: `${linearGradient}, url(${order.image})` }}>
       <Card.Content>
@@ -102,7 +107,7 @@ export default function SingleCard({ order, vote }) {
             {voteflag ? (
               <ThankyouUi />
             ) : (
-              <VoteUi order={order} vote={vote} setVoteflag={setVoteflag} />
+              <VoteUi order={order} vote={vote} setVoteflag={setVoteflag} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
             )}
           </div>
         </div>

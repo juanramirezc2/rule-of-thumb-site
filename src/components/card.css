@@ -5,6 +5,7 @@
   font-family: "Lato Bold";
 }
 .card__copy {
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 .card_overall-votes {
