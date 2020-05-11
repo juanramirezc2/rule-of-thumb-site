@@ -9,7 +9,7 @@ export default function ProgressBar(props) {
       <Frame
         height={"50px"}
         initial={{ width: "0%" }}
-        animate={{ width: "64%" }}
+        animate={{ width: progress + "%" }}
         transition={{ ease: "linear", duration: 2 }}
         background={"#FCB242B3"}
         left={0}
@@ -22,7 +22,7 @@ export default function ProgressBar(props) {
       <Frame
         height={"50px"}
         initial={{ width: "100%" }}
-        animate={{ width: "36%" }}
+        animate={{ width: (100-progress)+"%" }}
         transition={{ ease: "linear", duration: 2 }}
         background={"#33BAB3B3"}
         right={0}
@@ -36,6 +36,5 @@ export default function ProgressBar(props) {
   );
 }
 ProgressBar.defaultProps = {
-  progress: 100,
   duration: 2,
 };

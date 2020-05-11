@@ -22,7 +22,7 @@ function hero({ celebrity, vote }) {
             <div className="hero__name">{featuredCelebrity.name}?</div>
             <div className="hero__copy">{featuredCelebrity.copy}</div>
             <div>
-              <FontAwesomeIcon icon={['fab', 'wikipedia-w']} />
+              <FontAwesomeIcon icon={["fab", "wikipedia-w"]} />
               <a target="_blank" href={featuredCelebrity.more}>
                 More information
               </a>

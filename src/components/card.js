@@ -75,7 +75,7 @@ export default function SingleCard({ order, vote }) {
       <Card.Content>
         <Card.Header>
           <div className="card_overall-votes">
-            {order.votes.positive>order.votes.negatives? <ThumbsUp /> : <ThumbsDown />}
+            {order.votes.positives>order.votes.negatives? <ThumbsUp /> : <ThumbsDown />}
           </div>
           <Icon name="user outline" /> {order.name}
         </Card.Header>
@@ -107,7 +107,7 @@ export default function SingleCard({ order, vote }) {
           </div>
         </div>
       </Card.Content>
-      <Progress />
+      <Progress progress={( 100 * order.votes.positives )/ order.votes.total}/>
     </Card>
   );
 }

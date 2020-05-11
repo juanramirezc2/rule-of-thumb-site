@@ -46,6 +46,9 @@ button {
   font-family: "Lato Regular";
   height: 4rem;
 }
+button.thumbs-up, button.thumbs-down {
+ border: 0;
+}
 /* responsive images */
 img {
   width: 100%;
