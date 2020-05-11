@@ -1,5 +1,5 @@
 # rule-of-thumb-site
-serverless site that let's you thumbs up or down on people
+[serverless site](https://zen-brahmagupta-169e98.netlify.app/) that let's you thumbs up or down on people
 
 ## how to build 
 ```sh
