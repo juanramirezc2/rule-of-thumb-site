@@ -102,6 +102,7 @@ img {
 }
 .footer__content {
   margin-top: 4.1rem;
+  margin-bottom: 5rem;
   padding-top: 3rem;
   border-top: dotted 0.1rem #000000;
   display: flex;
