@@ -5,20 +5,35 @@
   font-family: "Lato Regular";
   font-size: 1.5rem;
   align-items: center;
+  position: relative;
 }
 
 @media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+  }
+  .banner__close {
+    top: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
   .banner{
-    flex-direction:column;
+    padding-right: 7.5rem;
   }
 }
 .banner b {
   font-size: 3.7rem;
 }
 .banner__left-side {
-  flex:1
+  flex: 1;
 }
 
 .banner__right-side {
- flex: 3;
+  flex: 3;
+}
+.banner__close {
+  position: absolute;
+  right: 3.5rem;
+  cursor: pointer;
 }

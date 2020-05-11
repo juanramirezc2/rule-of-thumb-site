@@ -12,9 +12,9 @@ import { connect } from "react-redux";
 
 class App extends Component {
   render() {
-    const { menuOpen } = this.props;
+    const { openMenu } = this.props;
     return (
-      <div className={classnames({ menuOpen: menuOpen })}>
+      <div className={classnames({ openMenu: openMenu })}>
         <Header />
         <Route exact path="/" component={ListPage} />
         <Route exact path="/past" component={Home} />
@@ -37,6 +37,6 @@ class App extends Component {
   }
 }
 
-export default connect((state) => ({ menuOpen: state.siteStore.menuOpen }))(
+export default connect((state) => ({ openMenu: state.siteStore.openMenu }))(
   App
 );

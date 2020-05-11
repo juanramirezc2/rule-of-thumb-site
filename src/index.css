@@ -68,7 +68,7 @@ img {
 .ui.cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 553px 553px;
+  grid-auto-rows: 553px;
   gap: 40px;
 }
 
@@ -76,33 +76,8 @@ img {
 @media (max-width: 768px) {
   .ui.cards {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-auto-rows: 370px;
   }
-}
-.ui.card {
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #ffffff;
-  padding: 0 4.1rem;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  position: relative;
-  background-blend-mode: normal;
-  padding-bottom: 5rem;
-}
-.ui.card .extra {
-  margin-bottom: 3.5rem;
-}
-.thumbs-up {
-  background-color: var(--thumbs-up-color);
-}
-.thumbs-down {
-  background-color: var(--thumbs-down-color);
-}
-.ui.card .header {
-  font-size: 4.5rem;
-  font-family: "Lato Regular";
 }
 .footer__content {
   margin-top: 4.1rem;
