@@ -7,3 +7,13 @@
 .card__copy {
   margin-bottom: 2rem;
 }
+.card_overall-votes {
+  position: absolute;
+  left: 0;
+}
+
+.card_overall-votes button{
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.6rem;
+}

@@ -1,4 +1,5 @@
 const defaultState = {
+  openMenu: false,
   orders: [],
   order: {},
   celebrities: [],

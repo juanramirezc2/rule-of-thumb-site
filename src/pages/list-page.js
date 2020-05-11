@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Container} from "semantic-ui-react";
-import {deleteOrders, fetchOrders, vote} from "../actions/celebrities-actions";
+import { fetchOrders, vote} from "../actions/celebrities-actions";
 import Hero from "../components/hero";
 import List from "../components/list";
 import Banner from "../components/banner";
@@ -39,7 +39,7 @@ class OrdersListPage extends Component {
   render() {
     const { activePage, boundaryRange, siblingRange, pageSize } = this.state;
 
-    const { orders, total, deleteOrders, vote } = this.props;
+    const { orders, total,  vote } = this.props;
     let totalPages = Math.ceil(total / pageSize); // round up the float number
     return (
       <main>
@@ -50,7 +50,6 @@ class OrdersListPage extends Component {
           <h2>Votes</h2>
           <List
             orders={orders.filter(celebrity => !celebrity.featured)}
-            deleteOrders={deleteOrders}
             vote={vote}
           />
           <Submit />
@@ -63,10 +62,11 @@ class OrdersListPage extends Component {
 function mapStateToProps(state) {
   return {
     orders: state.ordersStore.orders,
-    total: state.ordersStore.total
+    total: state.ordersStore.total,
+    openMenu: state.ordersStore.menuOpen
   };
 }
 
-export default connect(mapStateToProps, { fetchOrders, deleteOrders, vote })(
+export default connect(mapStateToProps, { fetchOrders, vote })(
   OrdersListPage
 );

@@ -3,6 +3,9 @@
   margin-top: -12rem;
   padding-top: 12rem;
   margin-bottom: 3.5rem;
+  min-height:  50vw;
+  position: relative;
+  z-index: -1;
 }
 .hero svg.svg-inline--fa.fa-w-16 {
   display: block;
@@ -40,6 +43,8 @@
   line-height: 8rem;
 }
 .hero__closing {
+  position: absolute;
+  bottom: 0;
   display: flex;
   font-family: Helvetica;
   height: 5.5rem;
@@ -47,6 +52,11 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .hero__closing {
+    display: none;
+  }
+}
 .hero__closing-left {
   width: 40vw;
   text-align: right;

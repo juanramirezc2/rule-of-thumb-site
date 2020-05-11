@@ -68,3 +68,12 @@ export function deleteOrders(_id) {
   };
 }
 
+export function toggleMenu() {
+  return dispatch => {
+    return dispatch({
+      type: "TOOGLE_MENU"
+    });
+  };
+}
+
+

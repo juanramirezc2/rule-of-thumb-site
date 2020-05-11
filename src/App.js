@@ -8,11 +8,14 @@ import ListPage from "./pages/list-page";
 import Terms from "./pages/terms";
 import Social from "./components/social";
 import { Container } from "semantic-ui-react";
+import classnames from "classnames";
+import { connect } from "react-redux";
 
 class App extends Component {
   render() {
+    const { menuOpen } = this.props;
     return (
-      <>
+      <div className={classnames({ menuOpen: menuOpen })}>
         <Header />
         <Route exact path="/" component={ListPage} />
         <Route exact path="/past" component={Home} />
@@ -32,9 +35,11 @@ class App extends Component {
             </div>
           </Container>
         </footer>
-      </>
+      </div>
     );
   }
 }
 
-export default App;
+export default connect((state) => ({ menuOpen: state.ordersStore.menuOpen }))(
+  App
+);

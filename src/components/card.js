@@ -36,14 +36,16 @@ const timeSince = (date) => {
  *
  *
  */
+const ThumbsUp = ({click}) =>( <Button basic className="thumbs-up" >
+      <FontAwesomeIcon icon="thumbs-up" />
+    </Button> )
+const ThumbsDown = ({click}) =>(<Button basic className="thumbs-down" >
+      <FontAwesomeIcon icon="thumbs-down" />
+    </Button>)
 const VoteUi = ({ order, vote, setVoteflag }) => (
   <>
-    <Button basic className="thumbs-up" onClick={() => vote(order, `up`)}>
-      <FontAwesomeIcon icon="thumbs-up" />
-    </Button>
-    <Button basic className="thumbs-down" onClick={() => vote(order, `down`)}>
-      <FontAwesomeIcon icon="thumbs-down" />
-    </Button>
+    <ThumbsUp />
+    <ThumbsDown />
     <Button
       basic
       color="red"
@@ -72,6 +74,9 @@ export default function SingleCard({ order, vote }) {
     <Card style={{ backgroundImage: `${linearGradient}, url(${order.image})` }}>
       <Card.Content>
         <Card.Header>
+          <div className="card_overall-votes">
+            {order.votes.positive>order.votes.negatives? <ThumbsUp /> : <ThumbsDown />}
+          </div>
           <Icon name="user outline" /> {order.name}
         </Card.Header>
         <Card.Description>

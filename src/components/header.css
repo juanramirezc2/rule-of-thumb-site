@@ -9,7 +9,9 @@ header h1 {
   justify-content: flex-end;
   align-items: center;
   color: #ffffff;
+  height:  10rem;
 }
+
 .header__brand {
   margin-right: auto;
 }
@@ -35,11 +37,14 @@ header h1 {
   font-size: 25px;
   cursor: pointer;
 }
+.menuOpen  .header__main-nav {
+  right: 0;
+}
 @media (max-width: 768px) {
   .header__main-nav {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     width: 70vw;
     height: 100vh;
     z-index: 100;

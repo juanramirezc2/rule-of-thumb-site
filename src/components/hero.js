@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function hero({ celebrity, vote }) {
   const featuredCelebrity = celebrity.length ? celebrity[0] : {};
-  const gradient = `linear-gradient(180deg, rgba(57,57,57,0.8911939775910365) 0%, rgba(70,70,70,1) 14%, rgba(186,186,186,0) 32%)`;
+  const gradient = `linear-gradient(rgba(57, 57, 57, 0.89) 0%, rgb(70, 70, 70) 4%, rgba(186, 186, 186, 0) 26%)`;
   return (
     <div
       style={{
