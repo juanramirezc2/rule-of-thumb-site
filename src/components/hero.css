@@ -27,6 +27,10 @@
   .hero__content {
     margin-top: 7rem;
   }
+  .hero__copy {
+    font-size: 2.1rem;
+    line-height: 2.4rem;
+  }
 }
 .hero__content {
   backdrop-filter: brightness(0.7) blur(40px);
@@ -48,8 +52,8 @@
   }
 }
 .hero__copy {
-  font-size: 2.1rem;
-  line-height: 24px;
+  font-size: 1.9rem;
+  line-height: 1.5;
 }
 .hero__more-info {
   display: flex;
