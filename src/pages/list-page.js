@@ -22,15 +22,15 @@ class OrdersListPage extends Component {
     this.props.fetchOrders({ activePage, pageSize: this.state.pageSize });
   };
   vote = (celebrity, type) => {
-    if (type === "up") {
-      celebrity.votes.positives++;
+    let celebrityUpdated= celebrity;
+    if (type === "thumbs-up") {
+      celebrityUpdated.votes.positives = celebrity.votes.positives+1;
     } else {
-      celebrity.votes.negatives++;
+       celebrityUpdated.votes.negatives = celebrity.votes.negatives+1;
     }
-    celebrity.votes.total =
-      celebrity.votes.positives + celebrity.votes.negatives;
+    celebrityUpdated.votes.total = celebrityUpdated.votes.positives + celebrityUpdated.votes.negatives;
     return this.props
-      .vote(celebrity)
+      .vote(celebrityUpdated)
       .then(response => this.setState({ redirect: true }))
       .catch(err => {
         throw this.props.errors;
@@ -43,14 +43,14 @@ class OrdersListPage extends Component {
     let totalPages = Math.ceil(total / pageSize); // round up the float number
     return (
       <main>
-        <Hero vote={vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
+        <Hero vote={this.vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
         <Container>
           <Banner>
           </Banner>
           <h2>Votes</h2>
           <List
             orders={orders.filter(celebrity => !celebrity.featured)}
-            vote={vote}
+            vote={this.vote}
           />
           <Submit />
         </Container>

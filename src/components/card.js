@@ -1,8 +1,8 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
-import {Button, Card, Icon} from "semantic-ui-react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, Card, Icon } from "semantic-ui-react";
 import "./card.css";
 import Progress from "./progress.js";
 
@@ -38,35 +38,74 @@ const timeSince = (date) => {
  *
  */
 
-const ThumbsUp = ({click, selected}) =>( 
- <Button className={classnames({ menuOpen: selected === `thumbs-up` })} onClick={click} basic className="thumbs-up" >
-      <FontAwesomeIcon icon="thumbs-up" />
-    </Button> )
-const ThumbsDown = ({click, selected}) =>(
-  <Button onClick={click} basic className="thumbs-down" >
-      <FontAwesomeIcon icon="thumbs-down" />
-    </Button>)
+const ThumbsUp = ({ click, selected }) => (
+  <Button
+    style={{ marginRight: "1rem", width: "3.5rem", height: "3.5rem" }}
+    className={classnames({
+      "thumbs-up": true,
+      selectedButton: selected == `thumbs-up`,
+    })}
+    onClick={click}
+    basic
+  >
+    <FontAwesomeIcon icon="thumbs-up" />
+  </Button>
+);
+const ThumbsDown = ({ click, selected }) => (
+  <Button
+    style={{ marginRight: "1rem", width: "3.5rem", height: "3.5rem" }}
+    className={classnames({
+      "thumbs-down": true,
+      selectedButton: selected == `thumbs-down`,
+    })}
+    onClick={click}
+    basic
+  >
+    <FontAwesomeIcon icon="thumbs-down" />
+  </Button>
+);
 
-const VoteUi = ({ order, vote, setVoteflag,selectedButton, setSelectedButton }) => (
+const VoteUi = ({
+  order,
+  vote,
+  setVoteflag,
+  selectedButton,
+  setSelectedButton,
+}) => (
   <>
-    <ThumbsUp click={()=>{setSelectedButton("thumbs-up")}} />
-    <ThumbsDown click={()=>{setSelectedButton("thumbs-down")}} />
+    <ThumbsUp
+      selected={selectedButton}
+      click={() => {
+        setSelectedButton("thumbs-up");
+      }}
+    />
+    <ThumbsDown
+      selected={selectedButton}
+      click={() => {
+        setSelectedButton("thumbs-down");
+      }}
+    />
     <Button
       basic
       color="red"
       onClick={() => {
-        setVoteflag(true);
-        vote(order, `down`);
+        if (selectedButton) {
+          setVoteflag(true);
+          vote(order, selectedButton);
+          setSelectedButton(false);
+        } else {
+          alert("please select eather thumbs up or thumbs down buttons");
+        }
       }}
     >
       Vote now
     </Button>
   </>
 );
-const ThankyouUi = () => (
+const ThankyouUi = ({ setVoteflag }) => (
   <>
     <p> thank you for voting!</p>
-    <Button>Vote again</Button>
+    <Button onClick={() => setVoteflag(false)}>Vote again</Button>
   </>
 );
 const linearGradient = `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 12%, rgba(9,9,121,0) 55%)
@@ -80,7 +119,11 @@ export default function SingleCard({ order, vote }) {
       <Card.Content>
         <Card.Header>
           <div className="card_overall-votes">
-            {order.votes.positives>order.votes.negatives? <ThumbsUp /> : <ThumbsDown />}
+            {order.votes.positives > order.votes.negatives ? (
+              <ThumbsUp />
+            ) : (
+              <ThumbsDown />
+            )}
           </div>
           <Icon name="user outline" /> {order.name}
         </Card.Header>
@@ -98,21 +141,21 @@ export default function SingleCard({ order, vote }) {
       <Card.Content extra>
         <div className="ui two buttons">
           <div className="ui two buttons">
-            <Link
-              to={`/orders/edit/${order._id}`}
-              className="ui basic button green"
-            >
-              <Icon name="adjust" /> {order.pizza}
-            </Link>
             {voteflag ? (
-              <ThankyouUi />
+              <ThankyouUi setVoteflag={setVoteflag} />
             ) : (
-              <VoteUi order={order} vote={vote} setVoteflag={setVoteflag} selectedButton={selectedButton} setSelectedButton={setSelectedButton} />
+              <VoteUi
+                order={order}
+                vote={vote}
+                setVoteflag={setVoteflag}
+                selectedButton={selectedButton}
+                setSelectedButton={setSelectedButton}
+              />
             )}
           </div>
         </div>
       </Card.Content>
-      <Progress progress={( 100 * order.votes.positives )/ order.votes.total}/>
+      <Progress progress={(100 * order.votes.positives) / order.votes.total} />
     </Card>
   );
 }

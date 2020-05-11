@@ -17,7 +17,7 @@ export default function ProgressBar(props) {
         bottom={0}
       >
         <FontAwesomeIcon icon="thumbs-up" />
-        64%
+        {Math.floor( progress )+"%"}
       </Frame>
       <Frame
         height={"50px"}
@@ -30,7 +30,7 @@ export default function ProgressBar(props) {
         bottom={0}
       >
         <FontAwesomeIcon icon="thumbs-down" />
-        36%
+        {Math.floor(100-progress)+"%"}
       </Frame>
     </div>
   );
