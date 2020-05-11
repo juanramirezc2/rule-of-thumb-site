@@ -53,6 +53,7 @@ header h1 {
   font-weight: 900;
   font-size: 25px;
   cursor: pointer;
+  color: #000000;
 }
 .openMenu .header__main-nav {
   right: 0;
