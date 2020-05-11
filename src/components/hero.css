@@ -4,13 +4,29 @@
   padding-top: 12rem;
   margin-bottom: 3.5rem;
   min-height:  60vw;
+  max-height: 75.0rem;
   position: relative;
   z-index: 1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .hero svg.svg-inline--fa.fa-w-16 {
   display: block;
   margin: auto;
   width: 3.5rem;
+}
+/* xl screens */
+@media (min-width: 1300px) {
+  .hero{
+    height: 60vw;
+    min-height: unset;
+  }
+}
+@media (min-width: 768px) {
+  .hero__content{
+    margin-top: 7rem;
+  }
 }
 .hero__content {
   backdrop-filter: brightness(0.7) blur(40px);
@@ -64,7 +80,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .hero__closing {
     display: none;
   }
