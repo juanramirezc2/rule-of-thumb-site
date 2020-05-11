@@ -3,9 +3,9 @@
   margin-top: -12rem;
   padding-top: 12rem;
   margin-bottom: 3.5rem;
-  min-height:  50vw;
+  min-height:  60vw;
   position: relative;
-  z-index: -1;
+  z-index: 1;
 }
 .hero svg.svg-inline--fa.fa-w-16 {
   display: block;
@@ -23,15 +23,26 @@
 .hero__name {
   font-size: 6rem;
   font-family: "Lato Regular";
+  margin-bottom: 2.5rem;
 }
 .hero__copy {
   font-size: 2.1rem;
   line-height: 24px;
 }
+.hero__more-info {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0 3rem;
+}
+
+.hero__more-info svg{
+  margin-right: 0.5rem;
+}
 .hero__thumbs-up {
   width: 50%;
   height: 8rem;
   line-height: 8rem;
+  cursor: pointer;
 }
 .hero__content svg {
   width: 4rem;
@@ -41,6 +52,7 @@
   width: 50%;
   height: 8rem;
   line-height: 8rem;
+  cursor: pointer;
 }
 .hero__closing {
   position: absolute;
@@ -94,4 +106,8 @@
   width: 0.7rem;
   left: -0.7rem;
   background-color: #ffffffde;
+}
+.hero__cta {
+  font-size: 2rem;
+  font-family: 'Lato Bold';
 }

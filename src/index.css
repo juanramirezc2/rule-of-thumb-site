@@ -46,8 +46,9 @@ button {
   font-family: "Lato Regular";
   height: 4rem;
 }
-button.thumbs-up, button.thumbs-down {
- border: 0;
+button.thumbs-up,
+button.thumbs-down {
+  border: 0;
 }
 /* responsive images */
 img {
@@ -111,4 +112,7 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+a:visited {
+  color: inherit;
 }

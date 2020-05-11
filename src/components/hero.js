@@ -21,19 +21,19 @@ function hero({ celebrity, vote }) {
             <div>What's your opinion on</div>
             <div className="hero__name">{featuredCelebrity.name}?</div>
             <div className="hero__copy">{featuredCelebrity.copy}</div>
-            <div>
+            <div className="hero__more-info">
               <FontAwesomeIcon icon={["fab", "wikipedia-w"]} />
               <a rel="noopener noreferrer" target="_blank" href={featuredCelebrity.more}>
                 More information
               </a>
             </div>
-            <div>What's our Veredict?</div>
+            <div className="hero__cta">What's our Veredict?</div>
           </div>
           <Button
             className="hero__thumbs-up thumbs-up"
             basic
             color="red"
-            onClick={() => vote(featuredCelebrity, `up`)}
+            onClick={() => vote(featuredCelebrity, `thumbs-up`)}
           >
             <FontAwesomeIcon icon="thumbs-up" />
           </Button>
@@ -41,7 +41,7 @@ function hero({ celebrity, vote }) {
             className="hero__thumbs-down thumbs-down"
             basic
             color="red"
-            onClick={() => vote(featuredCelebrity, `down`)}
+            onClick={() => vote(featuredCelebrity, `thumbs-down`)}
           >
             <FontAwesomeIcon icon="thumbs-down" />
           </Button>
