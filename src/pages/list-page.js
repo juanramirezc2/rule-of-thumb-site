@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Container, Pagination} from "semantic-ui-react";
+import {Container} from "semantic-ui-react";
 import {deleteOrders, fetchOrders, vote} from "../actions/celebrities-actions";
 import Hero from "../components/hero";
 import List from "../components/list";
 import Banner from "../components/banner";
+import Submit from "../components/submit";
 
 class OrdersListPage extends Component {
   state = {
@@ -52,14 +53,7 @@ class OrdersListPage extends Component {
             deleteOrders={deleteOrders}
             vote={vote}
           />
-          <Pagination
-            activePage={activePage}
-            boundaryRange={boundaryRange}
-            onPageChange={this.handlePaginationChange}
-            size="mini"
-            siblingRange={siblingRange}
-            totalPages={totalPages}
-          />
+          <Submit />
         </Container>
       </main>
     );

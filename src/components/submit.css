@@ -1,0 +1,22 @@
+.submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica;
+  font-weight: 400;
+  background-image: url("https://res.cloudinary.com/rutas/image/upload/v1589165534/bgsubmit_uxncwc.png");
+  background-size: cover;
+  background-color: #ffffffc9;
+  background-blend-mode: overlay;
+  height: 8rem;
+  margin-top: 3.5rem;
+  padding: 3rem 3rem 3rem 1rem;
+}
+.submit__text {
+  font-size: 3rem;
+}
+.submit button.inverse {
+  font-size: 2rem;
+  color: #000000;
+  border: solid 1px #000000;
+}

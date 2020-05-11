@@ -1,16 +1,14 @@
-import React, {Component} from "react";
-import {NavLink, Route} from "react-router-dom";
+import React, { Component } from "react";
+import { NavLink, Route } from "react-router-dom";
 import Header from "./components/header";
 import About from "./pages/about";
 import Home from "./pages/home";
 import OrdersFormPage from "./pages/orders-form-page";
 import ListPage from "./pages/list-page";
 import Terms from "./pages/terms";
-/**
- * App class react router in change of routes for all pages.
- *
- *
- */
+import Social from "./components/social";
+import { Container } from "semantic-ui-react";
+
 class App extends Component {
   render() {
     return (
@@ -23,16 +21,16 @@ class App extends Component {
         <Route path="/orders/new" component={OrdersFormPage} />
         <Route path="/orders/edit/:_id" component={OrdersFormPage} />
         <footer className="footer">
-          <div className="footer-links">
-            <NavLink to="/terms">Terminos y condiciones</NavLink>
-            <span className="divider" />
-            <NavLink to="/about">Acerca</NavLink>
-          </div>
-          <div className="copyright">
-            imagen de logo tomada desde{" "}
-            <a href="https://clipartxtras.com/">clipartxtras.com</a> todos los
-            derechos reservados ©
-          </div>
+          <Container>
+            <div className="footer__content">
+              <div className="footer-links">
+                <NavLink to="/terms">Terminos y condiciones</NavLink>
+                <span className="divider" />
+                <NavLink to="/about">Acerca</NavLink>
+              </div>
+              <Social />
+            </div>
+          </Container>
         </footer>
       </>
     );

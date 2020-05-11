@@ -22,6 +22,7 @@ function hero({ celebrity, vote }) {
             <div className="hero__name">{featuredCelebrity.name}?</div>
             <div className="hero__copy">{featuredCelebrity.copy}</div>
             <div>
+              <FontAwesomeIcon icon={['fab', 'wikipedia-w']} />
               <a target="_blank" href={featuredCelebrity.more}>
                 More information
               </a>
@@ -46,9 +47,9 @@ function hero({ celebrity, vote }) {
           </Button>
         </div>
       </Container>
-      <div className="closing">
-        <span>CLOSING</span>
-        <span>22 days</span>
+      <div className="hero__closing">
+        <span className="hero__closing-left">CLOSING</span>
+        <span className="hero__closing-right">22 days</span>
       </div>
     </div>
   );

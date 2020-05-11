@@ -4,10 +4,10 @@
   padding-top: 12rem;
   margin-bottom: 3.5rem;
 }
-.hero svg{
+.hero svg.svg-inline--fa.fa-w-16 {
   display: block;
   margin: auto;
-  width: 4rem;
+  width: 3.5rem;
 }
 .hero__content {
   backdrop-filter: brightness(0.7) blur(40px);
@@ -19,7 +19,7 @@
 }
 .hero__name {
   font-size: 6rem;
-  font-family:"Lato Regular";
+  font-family: "Lato Regular";
 }
 .hero__copy {
   font-size: 2.1rem;
@@ -39,4 +39,49 @@
   height: 8rem;
   line-height: 8rem;
 }
+.hero__closing {
+  display: flex;
+  font-family: Helvetica;
+  height: 5.5rem;
+  line-height: 5.5rem;
+  overflow: hidden;
+}
 
+.hero__closing-left {
+  width: 40vw;
+  text-align: right;
+  color: #ffffff;
+  background-color: #56545133;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-right: 17px;
+}
+
+.hero__closing-right {
+  width: 60vw;
+  font-size: 3.6rem;
+  color: #000000;
+  background-color: #ffffffde;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.hero__closing-right:before {
+  transform-origin: 100% 100%;
+  transform: skewY(35deg);
+  top: 0;
+}
+.hero__closing-right:after {
+  transform-origin: 100% 100%;
+  transform: skewY(-35deg);
+  bottom: 0;
+}
+.hero__closing-right:before,
+.hero__closing-right:after {
+  content: "";
+  position: absolute;
+  height: 50%;
+  width: 0.7rem;
+  left: -0.7rem;
+  background-color: #ffffffde;
+}
