@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import compression from "compression";
-
+import cors from 'cors'
 const feathers = require("@feathersjs/feathers");
 const express = require("@feathersjs/express");
 const NeDB = require("nedb");
@@ -35,6 +35,7 @@ export default function expressApp(functionName) {
   const router = express.Router;
   // Turn on JSON parser for REST services
   app.use(express.json());
+  app.use(cors());
   // Turn on URL-encoded parser for REST services
   app.use(express.urlencoded({ extended: true }));
   // Enable REST services
