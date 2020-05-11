@@ -27,16 +27,16 @@ class OrdersListPage extends Component {
       });
   };
   render() {
-    const { orders } = this.props;
+    const { entries } = this.props;
     return (
       <main>
-        <Hero vote={this.vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
+        <Hero vote={this.vote} celebrity={entries.filter(celebrity => celebrity.featured)} />
         <Container>
           <Banner>
           </Banner>
           <h2>Votes</h2>
           <List
-            orders={orders.filter(celebrity => !celebrity.featured)}
+            entries={entries.filter(celebrity => !celebrity.featured)}
             vote={this.vote}
           />
           <Submit />
@@ -48,7 +48,7 @@ class OrdersListPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    orders: state.siteStore.orders,
+    entries: state.siteStore.entries,
     openMenu: state.siteStore.menuOpen
   };
 }

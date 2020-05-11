@@ -30,12 +30,6 @@ const timeSince = (date) => {
   return Math.floor(seconds) + " seconds";
 };
 
-/**
- *
- * card class component in charge of show a single order
- *
- *
- */
 
 const ThumbsUp = ({ click, selected }) => (
   <Button
@@ -65,7 +59,7 @@ const ThumbsDown = ({ click, selected }) => (
 );
 
 const VoteUi = ({
-  order,
+  entry,
   vote,
   setVoteflag,
   selectedButton,
@@ -90,7 +84,7 @@ const VoteUi = ({
       onClick={() => {
         if (selectedButton) {
           setVoteflag(true);
-          vote(order, selectedButton);
+          vote(entry, selectedButton);
           setSelectedButton(false);
         } else {
           alert("please select eather thumbs up or thumbs down buttons");
@@ -110,31 +104,31 @@ const ThankyouUi = ({ setVoteflag }) => (
 const linearGradient = `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 12%, rgba(9,9,121,0) 55%)
 `;
 
-export default function SingleCard({ order, vote }) {
+export default function SingleCard({ entry, vote }) {
   const [voteflag, setVoteflag] = useState(false);
   const [selectedButton, setSelectedButton] = useState(false);
   return (
-    <Card style={{ backgroundImage: `${linearGradient}, url(${order.image})` }}>
+    <Card style={{ backgroundImage: `${linearGradient}, url(${entry.image})` }}>
       <Card.Content>
         <Card.Header>
           <div className="card_overall-votes">
-            {order.votes.positives > order.votes.negatives ? (
+            {entry.votes.positives > entry.votes.negatives ? (
               <ThumbsUp />
             ) : (
               <ThumbsDown />
             )}
           </div>
-          <Icon name="user outline" /> {order.name}
+          <Icon name="user outline" /> {entry.name}
         </Card.Header>
         <Card.Description>
           <div className="card__metadata">
             <span className="card__metadata-created">
-              {timeSince(new Date(order.created))}
+              {timeSince(new Date(entry.created))}
             </span>
             {"  "}
-            in <span>{order.category}</span>
+            in <span>{entry.category}</span>
           </div>
-          <div className="card__copy">{order.copy}</div>
+          <div className="card__copy">{entry.copy}</div>
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
@@ -144,7 +138,7 @@ export default function SingleCard({ order, vote }) {
               <ThankyouUi setVoteflag={setVoteflag} />
             ) : (
               <VoteUi
-                order={order}
+                entry={entry}
                 vote={vote}
                 setVoteflag={setVoteflag}
                 selectedButton={selectedButton}
@@ -154,7 +148,7 @@ export default function SingleCard({ order, vote }) {
           </div>
         </div>
       </Card.Content>
-      <Progress progress={(100 * order.votes.positives) / order.votes.total} />
+      <Progress progress={(100 * entry.votes.positives) / entry.votes.total} />
     </Card>
   );
 }

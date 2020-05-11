@@ -1,7 +1,6 @@
 const defaultState = {
   openMenu: false,
-  celebrities: [],
-  celebrity: {},
+  entries: [],
   loading: false,
   errors: {}
 };
@@ -25,15 +24,13 @@ export default (state = defaultState, action = {}) => {
     case "FETCH_ENTRIES": {
       return {
         ...state,
-        total: action.payload.data.total, // needed for pagination
-        orders: action.payload.data.data || action.payload.data // in case pagination is disabled
+        entries: action.payload.data.data || action.payload.data
       };
     }
     case "FETCH_ENTRIES_PENDING": {
       return {
         ...state,
-        loading: true,
-        order: {}
+        loading: true
       };
     }
     case "FETCH_ENTRIES_FULFILLED": {

@@ -6,11 +6,11 @@ import OrderCard from "./card";
  *
  * class component for listing a single order
  */
-export default function OrdersList({ orders, vote }) {
+export default function OrdersList({ entries, vote }) {
   const cards = () => {
-    return orders.map(order => {
+    return entries.map(entry => {
       return (
-        <OrderCard key={order._id} order={order}  vote={vote}/>
+        <OrderCard key={entry._id} entry={entry}  vote={vote}/>
       );
     });
   };
