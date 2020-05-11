@@ -98,3 +98,6 @@ img {
 a:visited {
   color: inherit;
 }
+.social a {
+  color: black;
+}

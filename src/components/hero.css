@@ -51,6 +51,9 @@
   margin: 1.5rem 0 3rem;
 }
 
+.hero__more-info a{
+  color: white;
+}
 .hero__more-info svg {
   margin-right: 0.5rem;
 }
