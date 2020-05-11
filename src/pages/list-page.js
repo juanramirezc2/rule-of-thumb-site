@@ -9,7 +9,7 @@ import Submit from "../components/submit";
 
 class OrdersListPage extends Component {
   componentDidMount() {
-    this.props.fetchEntries(5);
+    this.props.fetchEntries();
   }
   vote = (celebrity, type) => {
     let celebrityUpdated= celebrity;
@@ -48,9 +48,8 @@ class OrdersListPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    orders: state.ordersStore.orders,
-    total: state.ordersStore.total,
-    openMenu: state.ordersStore.menuOpen
+    orders: state.siteStore.orders,
+    openMenu: state.siteStore.menuOpen
   };
 }
 

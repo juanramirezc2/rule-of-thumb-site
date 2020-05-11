@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import OrdersReducer from './orders-reducer';
-import { reducer as formReducer } from 'redux-form';
+import SiteReducer from './site-reducer';
 
 const reducers = {
-    ordersStore: OrdersReducer,
-    form: formReducer
+    siteStore: SiteReducer,
 }
 
 const rootReducer = combineReducers(reducers);

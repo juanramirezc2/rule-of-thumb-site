@@ -37,6 +37,6 @@ class App extends Component {
   }
 }
 
-export default connect((state) => ({ menuOpen: state.ordersStore.menuOpen }))(
+export default connect((state) => ({ menuOpen: state.siteStore.menuOpen }))(
   App
 );
