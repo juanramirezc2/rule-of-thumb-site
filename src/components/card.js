@@ -3,6 +3,33 @@ import { Card, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Progress from "./progress.js";
+import "./card.css";
+
+const timeSince = (date) => {
+  var seconds = Math.floor((new Date() - date) / 1000);
+  var interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+};
+
 /**
  *
  * card class component in charge of show a single order
@@ -38,7 +65,7 @@ const ThankyouUi = () => (
 const linearGradient = `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 12%, rgba(9,9,121,0) 55%)
 `;
 
-export default function SingleCard({ order,  vote }) {
+export default function SingleCard({ order, vote }) {
   // Declaración de una variable de estado que llamaremos "count"
   const [voteflag, setVoteflag] = useState(false);
   return (
@@ -47,7 +74,16 @@ export default function SingleCard({ order,  vote }) {
         <Card.Header>
           <Icon name="user outline" /> {order.name}
         </Card.Header>
-        <Card.Description></Card.Description>
+        <Card.Description>
+          <div className="card__metadata">
+            <span className="card__metadata-created">
+              {timeSince(new Date(order.created))}
+            </span>
+            {"  "}
+            in <span>{order.category}</span>
+          </div>
+          <div className="card__copy">{order.copy}</div>
+        </Card.Description>
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">

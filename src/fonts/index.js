@@ -1,0 +1,6 @@
+import './Lato-Light.ttf'
+import './Lato-Regular.ttf'
+import './Lato-Italic.ttf'
+import './Lato-BoldItalic.ttf'
+import './Lato-BoldItalic.ttf'
+import './Lato-LightItalic.ttf'

@@ -1,0 +1,24 @@
+.banner {
+  background-color: #ebebeb;
+  display: flex;
+  padding: 3rem;
+  font-family: "Lato Regular";
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .banner{
+    flex-direction:column;
+  }
+}
+.banner b {
+  font-size: 3.7rem;
+}
+.banner__left-side {
+  flex:1
+}
+
+.banner__right-side {
+ flex: 3;
+}

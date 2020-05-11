@@ -1,0 +1,9 @@
+.card__metadata {
+  font-size: 1.2rem;
+}
+.card__metadata-created {
+  font-family: "Lato Bold";
+}
+.card__copy {
+  margin-bottom: 2rem;
+}

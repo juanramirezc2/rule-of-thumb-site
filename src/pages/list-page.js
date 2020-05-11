@@ -1,21 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import List from "../components/list";
+import React, {Component} from "react";
+import {connect} from "react-redux";
+import {Container, Pagination} from "semantic-ui-react";
+import {deleteOrders, fetchOrders, vote} from "../actions/celebrities-actions";
 import Hero from "../components/hero";
-import { Container } from "semantic-ui-react";
-import {
-  fetchOrders,
-  deleteOrders,
-  vote
-} from "../actions/celebrities-actions";
-import { Pagination } from "semantic-ui-react";
+import List from "../components/list";
+import Banner from "../components/banner";
 
-/**
- *
- * list class component in charge of show orders list
- *
- *
- */
 class OrdersListPage extends Component {
   state = {
     activePage: 1,
@@ -54,7 +44,8 @@ class OrdersListPage extends Component {
       <main>
         <Hero vote={vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
         <Container>
-          <div>Speak out. Be heard.</div>
+          <Banner>
+          </Banner>
           <h2>Votes</h2>
           <List
             orders={orders.filter(celebrity => !celebrity.featured)}

@@ -2,6 +2,12 @@
   color: #ffffff;
   margin-top: -12rem;
   padding-top: 12rem;
+  margin-bottom: 3.5rem;
+}
+.hero svg{
+  display: block;
+  margin: auto;
+  width: 4rem;
 }
 .hero__content {
   backdrop-filter: brightness(0.7) blur(40px);
