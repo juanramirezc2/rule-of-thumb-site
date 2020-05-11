@@ -41,6 +41,12 @@
   font-family: "Lato Regular";
   margin-bottom: 2.5rem;
 }
+
+@media (max-width: 768px) {
+  .hero__name {
+    font-size: 3.5rem;
+  }
+}
 .hero__copy {
   font-size: 2.1rem;
   line-height: 24px;
