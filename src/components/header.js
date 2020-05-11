@@ -4,6 +4,7 @@ import {Container} from "semantic-ui-react";
 import "./header.css";
 import {connect} from "react-redux";
 import {toggleMenu} from "../actions/celebrities-actions";
+import { NavLink } from "react-router-dom";
 
  function Header({toggleMenu}) {
   return (
@@ -18,9 +19,9 @@ import {toggleMenu} from "../actions/celebrities-actions";
               <FontAwesomeIcon icon="times" />
             </div>
             <ul className="header__main-nav--inline">
-              <li>Past Trials</li>
-              <li>How it Works</li>
-              <li>Log In/Sign Up</li>
+              <li><NavLink to="/about">Past Trials</NavLink></li>
+              <li> <NavLink to="/about">How it Works</NavLink></li>
+              <li><NavLink to="/about"> How it Works</NavLink></li>
             </ul>
           </nav>
           <div className="header__search">
