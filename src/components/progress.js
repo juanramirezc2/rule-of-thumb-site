@@ -11,7 +11,7 @@ export default function ProgressBar(props) {
         initial={{ width: "0%" }}
         animate={{ width: progress + "%" }}
         transition={{ ease: "linear", duration: 2 }}
-        background={"#FCB242B3"}
+        background={"#33BAB3B3"}
         left={0}
         style={{ textAlign: "left", lineHeight: "50px", padding: "0 1rem" }}
         bottom={0}
@@ -24,7 +24,7 @@ export default function ProgressBar(props) {
         initial={{ width: "100%" }}
         animate={{ width: (100-progress)+"%" }}
         transition={{ ease: "linear", duration: 2 }}
-        background={"#33BAB3B3"}
+        background={"#FCB242B3"}
         right={0}
         style={{ textAlign: "right", lineHeight: "50px", padding: "0 1rem" }}
         bottom={0}

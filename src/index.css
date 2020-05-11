@@ -88,6 +88,13 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+.footer-links a{
+  color: #000000;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  margin-right: 3rem;
+}
 a:visited {
   color: inherit;
 }
