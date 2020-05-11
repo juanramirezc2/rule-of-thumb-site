@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./hero.css";
+import  "./hero.css";
 import { Button } from "semantic-ui-react";
 import { Container } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ function hero({ celebrity, vote }) {
             <div className="hero__copy">{featuredCelebrity.copy}</div>
             <div>
               <FontAwesomeIcon icon={["fab", "wikipedia-w"]} />
-              <a target="_blank" href={featuredCelebrity.more}>
+              <a rel="noopener noreferrer" target="_blank" href={featuredCelebrity.more}>
                 More information
               </a>
             </div>

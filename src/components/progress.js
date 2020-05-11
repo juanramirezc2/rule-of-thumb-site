@@ -3,7 +3,7 @@ import { Frame } from "framer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ProgressBar(props) {
-  const { progress, duration } = props;
+  const { progress } = props;
   return (
     <div style={{ fontSize: "29px" }} className="percentages">
       <Frame
@@ -35,6 +35,3 @@ export default function ProgressBar(props) {
     </div>
   );
 }
-ProgressBar.defaultProps = {
-  duration: 2,
-};

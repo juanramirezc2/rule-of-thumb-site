@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './banner.css';
+import './banner.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 function banner() {

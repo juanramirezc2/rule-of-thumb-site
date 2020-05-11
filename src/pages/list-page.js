@@ -1,26 +1,16 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Container} from "semantic-ui-react";
-import { fetchOrders, vote} from "../actions/celebrities-actions";
+import { fetchEntries, vote} from "../actions/celebrities-actions";
 import Hero from "../components/hero";
 import List from "../components/list";
 import Banner from "../components/banner";
 import Submit from "../components/submit";
 
 class OrdersListPage extends Component {
-  state = {
-    activePage: 1,
-    boundaryRange: 1,
-    siblingRange: 1,
-    pageSize: 5
-  };
   componentDidMount() {
-    this.props.fetchOrders(this.state);
+    this.props.fetchEntries(5);
   }
-  handlePaginationChange = (e, { activePage }) => {
-    this.setState({ activePage });
-    this.props.fetchOrders({ activePage, pageSize: this.state.pageSize });
-  };
   vote = (celebrity, type) => {
     let celebrityUpdated= celebrity;
     if (type === "thumbs-up") {
@@ -37,10 +27,7 @@ class OrdersListPage extends Component {
       });
   };
   render() {
-    const { activePage, boundaryRange, siblingRange, pageSize } = this.state;
-
-    const { orders, total,  vote } = this.props;
-    let totalPages = Math.ceil(total / pageSize); // round up the float number
+    const { orders } = this.props;
     return (
       <main>
         <Hero vote={this.vote} celebrity={orders.filter(celebrity => celebrity.featured)} />
@@ -67,6 +54,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchOrders, vote })(
+export default connect(mapStateToProps, { fetchEntries, vote })(
   OrdersListPage
 );

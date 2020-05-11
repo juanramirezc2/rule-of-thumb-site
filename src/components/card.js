@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Button, Card, Icon } from "semantic-ui-react";
 import "./card.css";
 import Progress from "./progress.js";
@@ -43,7 +42,7 @@ const ThumbsUp = ({ click, selected }) => (
     style={{ marginRight: "1rem", width: "3.5rem", height: "3.5rem" }}
     className={classnames({
       "thumbs-up": true,
-      selectedButton: selected == `thumbs-up`,
+      selectedButton: selected === `thumbs-up`,
     })}
     onClick={click}
     basic
@@ -56,7 +55,7 @@ const ThumbsDown = ({ click, selected }) => (
     style={{ marginRight: "1rem", width: "3.5rem", height: "3.5rem" }}
     className={classnames({
       "thumbs-down": true,
-      selectedButton: selected == `thumbs-down`,
+      selectedButton: selected === `thumbs-down`,
     })}
     onClick={click}
     basic

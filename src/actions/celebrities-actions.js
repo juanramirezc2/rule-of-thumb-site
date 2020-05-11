@@ -3,12 +3,12 @@ import { client } from "./";
 const url = "/celebrities";
 
 // fetch orders and then dispatch the action 'FETCH_ORDERS'
-export function fetchOrders({ pageSize, activePage }) {
-  let pagination = `?$limit=${pageSize}&$skip=${pageSize * (activePage - 1)}`;
+export function fetchEntries({ pageSize }) {
+  let pagination = `?$limit=${pageSize}`;
   return dispatch => {
     client.get(`${url}${pagination}`).then(response =>
       dispatch({
-        type: "FETCH_ORDERS",
+        type: "FETCH_ENTRIES",
         payload: response
       })
     );
@@ -37,24 +37,6 @@ export function saveOrder(order) {
     return dispatch({
       type: "SAVE_ORDER",
       payload: client.post(url, order)
-    });
-  };
-}
-
-export function fetchOrder(_id) {
-  return dispatch => {
-    return dispatch({
-      type: "FETCH_ORDER",
-      payload: client.get(`${url}/${_id}`)
-    });
-  };
-}
-
-export function updateOrder(order) {
-  return dispatch => {
-    return dispatch({
-      type: "UPDATE_ORDER",
-      payload: client.put(`${url}/${order._id}`, order)
     });
   };
 }
