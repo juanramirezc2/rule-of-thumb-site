@@ -15,6 +15,10 @@
   .banner__close {
     top: 3rem;
   }
+  .banner__left-side {
+    flex: 1;
+    margin-bottom: 2rem;
+  }
 }
 
 @media (min-width: 768px) {
