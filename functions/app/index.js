@@ -9,11 +9,19 @@ const express = require("@feathersjs/express");
 const NeDB = require("nedb");
 const service = require("feathers-nedb");
 const path = require('path');
+const initialJsonData = require('./data/data.json');
 
 
 const db = new NeDB({
-  filename: "./db-data/celebrities",
+  inMemoryOnly: true,
   autoload: true
+});
+
+db.insert(initialJsonData, function (err, newDoc) {
+  console.log(`docs inserted ${newDoc}`)
+  if(err){
+    throw err
+  }
 });
 
 /* My express App */
@@ -40,13 +48,6 @@ export default function expressApp(functionName) {
       Model: db
     })
   );
-
-  //app
-    //.service("messages")
-    //.create({
-      //text: "Message created on server"
-    //})
-    //.then(message => console.log("Created message", message));
 
   // Apply express middlewares
   return app;
