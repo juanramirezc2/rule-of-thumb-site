@@ -7,7 +7,7 @@ import List from "../components/list";
 import Banner from "../components/banner";
 import Submit from "../components/submit";
 
-class OrdersListPage extends Component {
+class EntriesListPage extends Component {
   componentDidMount() {
     this.props.fetchEntries();
   }
@@ -54,5 +54,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchEntries, vote })(
-  OrdersListPage
+  EntriesListPage
 );

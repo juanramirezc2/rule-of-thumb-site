@@ -1,16 +1,12 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
-import OrderCard from "./card";
+import EntryCard from "./card";
 
-/**
- *
- * class component for listing a single order
- */
-export default function OrdersList({ entries, vote }) {
+export default function EntriesList({ entries, vote }) {
   const cards = () => {
     return entries.map(entry => {
       return (
-        <OrderCard key={entry._id} entry={entry}  vote={vote}/>
+        <EntryCard key={entry._id} entry={entry}  vote={vote}/>
       );
     });
   };

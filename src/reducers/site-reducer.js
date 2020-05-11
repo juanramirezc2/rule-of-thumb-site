@@ -36,7 +36,7 @@ export default (state = defaultState, action = {}) => {
     case "FETCH_ENTRIES_FULFILLED": {
       return {
         ...state,
-        order: action.payload.data,
+        entries: action.payload.data,
         errors: {},
         loading: false
       };

@@ -2,7 +2,6 @@ import { client } from "./";
 
 const url = "/celebrities";
 
-// fetch orders and then dispatch the action 'FETCH_ORDERS'
 export function fetchEntries() {
   return dispatch => {
     client.get(`${url}`).then(response =>
@@ -11,14 +10,6 @@ export function fetchEntries() {
         payload: response
       })
     );
-  };
-}
-
-export function newOrder() {
-  return dispatch => {
-    dispatch({
-      type: "NEW_ORDER"
-    });
   };
 }
 
