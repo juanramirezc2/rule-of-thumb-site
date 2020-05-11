@@ -25,9 +25,9 @@
 }
 
 @media (max-width: 768px) {
-.ui.card .header {
-  font-size: 2.5rem;
-}
+  .ui.card .header {
+    font-size: 2.5rem;
+  }
 }
 .card__metadata {
   font-size: 1.2rem;
@@ -44,11 +44,11 @@
   left: 0;
 }
 
-.card_overall-votes button{
+.card_overall-votes button {
   width: 3rem;
   height: 3rem;
   font-size: 1.6rem;
 }
 .card .buttons .selectedButton {
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
 }

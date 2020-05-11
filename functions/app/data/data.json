@@ -51,7 +51,7 @@
     "more": "https://es.wikipedia.org/wiki/Francisco_(papa)",
     "copy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque metus eget ante posuere efficitur.",
     "image": "https://res.cloudinary.com/rutas/image/upload/v1589060654/malala_poyh5l.png",
-    "votes": { "positives": 21, "negatives": 5, "total": 26 },
+    "votes": { "positives": 21, "negatives": 10, "total": 26 },
     "_id": "GJc74IecRu6WH7XN"
   }
 ]

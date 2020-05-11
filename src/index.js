@@ -18,7 +18,7 @@ import {
   faThumbsDown,
   faBars,
   faSearch,
-  faTimes
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(

@@ -1,7 +1,7 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {Container} from "semantic-ui-react";
-import { fetchEntries, vote} from "../actions/celebrities-actions";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Container } from "semantic-ui-react";
+import { fetchEntries, vote } from "../actions/celebrities-actions";
 import Hero from "../components/hero";
 import List from "../components/list";
 import Banner from "../components/banner";
@@ -12,17 +12,18 @@ class EntriesListPage extends Component {
     this.props.fetchEntries();
   }
   vote = (celebrity, type) => {
-    let celebrityUpdated= celebrity;
+    let celebrityUpdated = celebrity;
     if (type === "thumbs-up") {
-      celebrityUpdated.votes.positives = celebrity.votes.positives+1;
+      celebrityUpdated.votes.positives = celebrity.votes.positives + 1;
     } else {
-       celebrityUpdated.votes.negatives = celebrity.votes.negatives+1;
+      celebrityUpdated.votes.negatives = celebrity.votes.negatives + 1;
     }
-    celebrityUpdated.votes.total = celebrityUpdated.votes.positives + celebrityUpdated.votes.negatives;
+    celebrityUpdated.votes.total =
+      celebrityUpdated.votes.positives + celebrityUpdated.votes.negatives;
     return this.props
       .vote(celebrityUpdated)
-      .then(response => this.setState({ redirect: true }))
-      .catch(err => {
+      .then((response) => this.setState({ redirect: true }))
+      .catch((err) => {
         throw this.props.errors;
       });
   };
@@ -30,13 +31,15 @@ class EntriesListPage extends Component {
     const { entries } = this.props;
     return (
       <main>
-        <Hero vote={this.vote} celebrity={entries.filter(celebrity => celebrity.featured)} />
+        <Hero
+          vote={this.vote}
+          celebrity={entries.filter((celebrity) => celebrity.featured)}
+        />
         <Container>
-          <Banner>
-          </Banner>
+          <Banner></Banner>
           <h2>Votes</h2>
           <List
-            entries={entries.filter(celebrity => !celebrity.featured)}
+            entries={entries.filter((celebrity) => !celebrity.featured)}
             vote={this.vote}
           />
           <Submit />
@@ -49,7 +52,7 @@ class EntriesListPage extends Component {
 function mapStateToProps(state) {
   return {
     entries: state.siteStore.entries,
-    openMenu: state.siteStore.menuOpen
+    openMenu: state.siteStore.menuOpen,
   };
 }
 

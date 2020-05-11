@@ -4,19 +4,18 @@ const feathers = require("@feathersjs/feathers");
 const express = require("@feathersjs/express");
 const NeDB = require("nedb");
 const service = require("feathers-nedb");
-const path = require('path');
-const initialJsonData = require('./data/data.json');
-
+const path = require("path");
+const initialJsonData = require("./data/data.json");
 
 const db = new NeDB({
   inMemoryOnly: true,
-  autoload: true
+  autoload: true,
 });
 
 db.insert(initialJsonData, function (err, newDoc) {
-  console.log(`docs inserted ${newDoc}`)
-  if(err){
-    throw err
+  console.log(`docs inserted ${newDoc}`);
+  if (err) {
+    throw err;
   }
 });
 
@@ -42,7 +41,7 @@ export default function expressApp(functionName) {
   app.use(
     `${routerBasePath}/celebrities`,
     service({
-      Model: db
+      Model: db,
     })
   );
 

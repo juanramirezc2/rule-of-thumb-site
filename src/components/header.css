@@ -30,11 +30,10 @@ header h1 {
   text-decoration: none;
 }
 @media (min-width: 769px) {
-
   .header__main-nav a {
     color: white;
   }
-  .header__main-nav--inline  li {
+  .header__main-nav--inline li {
     margin-left: 5rem;
   }
   .header__search {

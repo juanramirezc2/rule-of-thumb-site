@@ -2,7 +2,7 @@ const defaultState = {
   openMenu: false,
   entries: [],
   loading: false,
-  errors: {}
+  errors: {},
 };
 
 export default (state = defaultState, action = {}) => {
@@ -10,7 +10,7 @@ export default (state = defaultState, action = {}) => {
     case "VOTE_PENDING": {
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     }
     case "VOTE_FULFILLED": {
@@ -18,19 +18,19 @@ export default (state = defaultState, action = {}) => {
         ...state,
         celebrities: [...state.celebrities, action.payload.data],
         errors: {},
-        loading: false
+        loading: false,
       };
     }
     case "FETCH_ENTRIES": {
       return {
         ...state,
-        entries: action.payload.data.data || action.payload.data
+        entries: action.payload.data.data || action.payload.data,
       };
     }
     case "FETCH_ENTRIES_PENDING": {
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     }
     case "FETCH_ENTRIES_FULFILLED": {
@@ -38,13 +38,13 @@ export default (state = defaultState, action = {}) => {
         ...state,
         entries: action.payload.data,
         errors: {},
-        loading: false
+        loading: false,
       };
     }
     case "TOOGLE_MENU": {
       return {
         ...state,
-        openMenu: !state.openMenu
+        openMenu: !state.openMenu,
       };
     }
     default:

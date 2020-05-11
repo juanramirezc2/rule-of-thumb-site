@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
-import SiteReducer from './site-reducer';
+import { combineReducers } from "redux";
+import SiteReducer from "./site-reducer";
 
 const reducers = {
-    siteStore: SiteReducer,
-}
+  siteStore: SiteReducer,
+};
 
 const rootReducer = combineReducers(reducers);
 

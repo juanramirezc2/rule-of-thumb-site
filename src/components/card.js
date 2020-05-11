@@ -30,7 +30,6 @@ const timeSince = (date) => {
   return Math.floor(seconds) + " seconds";
 };
 
-
 const ThumbsUp = ({ click, selected }) => (
   <Button
     style={{ marginRight: "1rem", width: "3.5rem", height: "3.5rem" }}

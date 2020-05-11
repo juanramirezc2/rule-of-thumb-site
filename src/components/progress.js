@@ -17,12 +17,12 @@ export default function ProgressBar(props) {
         bottom={0}
       >
         <FontAwesomeIcon icon="thumbs-up" />
-        {Math.floor( progress )+"%"}
+        {Math.floor(progress) + "%"}
       </Frame>
       <Frame
         height={"50px"}
         initial={{ width: "100%" }}
-        animate={{ width: (100-progress)+"%" }}
+        animate={{ width: 100 - progress + "%" }}
         transition={{ ease: "linear", duration: 2 }}
         background={"#FCB242B3"}
         right={0}
@@ -30,7 +30,7 @@ export default function ProgressBar(props) {
         bottom={0}
       >
         <FontAwesomeIcon icon="thumbs-down" />
-        {Math.floor(100-progress)+"%"}
+        {Math.floor(100 - progress) + "%"}
       </Frame>
     </div>
   );

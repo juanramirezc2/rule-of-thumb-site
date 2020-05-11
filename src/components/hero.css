@@ -3,8 +3,8 @@
   margin-top: -12rem;
   padding-top: 12rem;
   margin-bottom: 3.5rem;
-  min-height:  60vw;
-  max-height: 75.0rem;
+  min-height: 60vw;
+  max-height: 75rem;
   position: relative;
   z-index: 0;
   background-repeat: no-repeat;
@@ -18,13 +18,13 @@
 }
 /* xl screens */
 @media (min-width: 1300px) {
-  .hero{
+  .hero {
     height: 60vw;
     min-height: unset;
   }
 }
 @media (min-width: 768px) {
-  .hero__content{
+  .hero__content {
     margin-top: 7rem;
   }
 }
@@ -51,7 +51,7 @@
   margin: 1.5rem 0 3rem;
 }
 
-.hero__more-info svg{
+.hero__more-info svg {
   margin-right: 0.5rem;
 }
 .hero__thumbs-up {
@@ -125,5 +125,5 @@
 }
 .hero__cta {
   font-size: 2rem;
-  font-family: 'Lato Bold';
+  font-family: "Lato Bold";
 }
